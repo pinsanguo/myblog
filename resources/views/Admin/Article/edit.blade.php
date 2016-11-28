@@ -83,7 +83,7 @@
                             '_token'     : '{{csrf_token()}}'
                         },
                         'swf'      : '{{asset("resources/org/uploadify/uploadify.swf")}}',
-                        'uploader' : '{{url('admin/uploadify')}}',
+                        'uploader' : '{{url('admin/upload')}}',
                         'onUploadSuccess' : function(file, data, response) {
                             $('input[name=arti_img]').val(data);
                             $('#art_thumb_img').attr('src','/'+data);

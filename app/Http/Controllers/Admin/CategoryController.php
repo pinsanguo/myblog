@@ -49,7 +49,7 @@ class CategoryController extends Controller
         $data = Category::where('cate_pid',0)->get();
         $cate_info = category::all();
         $info=$this->tree($cate_info);
-        return view('admin/category/add',compact('info'));
+        return view('Admin/category/add',compact('info'));
     }
 
     //post.admin/category  添加分类提交
@@ -65,7 +65,7 @@ class CategoryController extends Controller
         if($validator->passes()){
             $re=Category::create($input);
             if($re){
-                return redirect('admin/category');
+                return redirect('Admin/category');
             }else{
                 return back()->with('errors','数据库填充失败，请重试');
             }
@@ -78,7 +78,7 @@ class CategoryController extends Controller
     {
         $field = category::find($cate_id);
         $data = category::where('cate_pid',0)->get();
-        return view('admin.category.edit',compact('field','data'));
+        return view('Admin.category.edit',compact('field','data'));
     }
     //put.admin/category/{category}    更新分类
     // 更新分类
@@ -87,7 +87,7 @@ class CategoryController extends Controller
 
         $rs=category::where('cate_id',$cate_id)->update($input);
         if($rs){
-            return redirect('admin/category');
+            return redirect('Admin/category');
         }else{
             return back()->with('errors','分类信息更新失败');
         }
